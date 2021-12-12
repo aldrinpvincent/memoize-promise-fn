@@ -1,5 +1,4 @@
 /**
- * DO NOT USE THIS UTILITY FOR NORMAL API CACHING
  * IF YOU WANT TO CACHE API CALLS, GO FOR STANDARD HTTP CACHING - https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
  * IT IS NOT PREFERRED TO USE SOME JAVASCRIPT HACKS LIKE THIS OR USING REDUX STORE TO CACHE API CALLS
  * If no arguments are passed, it will return the same result for all calls, suceptible to stale data problem
