@@ -23,6 +23,42 @@ export const promiseMemoize = (fn) => {
   };
 };
 
+
+export const promiseCacheV2 = (fn) => {
+    const cache = new Map(); //{};
+
+    return (...args) => {
+        const key = JSON.stringify(args);
+        // const key = JSON.parse(JSON.stringify(args));
+
+        // console.log('args :>> ', JSON.parse(JSON.stringify(args)));
+
+        console.log('cache current:>> ', cache);
+
+        console.log('key :>> ', key);
+
+
+        if (cache.has(key)) {
+            console.log('cache hit key:>> ', key);
+            console.log('cache[key] :>> ', cache[key]);
+            // return cache[key];
+            return cache.get(key);
+        }
+
+        cache.set(key, fn(...args).catch((error) => {
+            cache.delete(key);
+            return Promise.reject(error);
+        }));
+        // cache[key] = fn(...args).catch((error) => {
+           
+
+        console.log('cache new:>> ', cache);
+
+        return cache.get(key);
+    };
+};
+
+
 // function testApi() {
 //   fetch("https://jsonplaceholder.typicode.com/todos/1")
 //     .then((response) => response.json())
