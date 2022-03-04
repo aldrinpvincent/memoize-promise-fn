@@ -1,7 +1,7 @@
-export const memoizePromiseFn = (fn: (args: Array<any>) => Promise<any>) => {
+export const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
   const cache = new Map();
 
-  return (...args: Array<any>) => {
+  return (...args: any) => {
     const key = JSON.stringify(args);
 
     if (cache.has(key)) {
