@@ -1,4 +1,4 @@
-import { memoizePromiseFn } from '../src';
+import memoizePromiseFn from '../src';
 
 async function testApi(id: any): Promise<any> {
   const json = await fetch(`https://api.example.com/todos/${id}`);
