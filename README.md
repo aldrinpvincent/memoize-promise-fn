@@ -12,7 +12,7 @@ yarn add memoize-promise-fn
 # Usage
 
 ```ts
-import memoize-promise-fn from 'react-use-custom-hooks';
+import memoizePromiseFn from 'memoize-promise-fn';
 
 let cachedFetchData = memoizePromiseFn(fetchData);
 ```
