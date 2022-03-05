@@ -1,4 +1,4 @@
-export const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
+const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
   const cache = new Map();
 
   return (...args: any) => {
@@ -20,3 +20,5 @@ export const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
     return cache.get(key);
   };
 };
+
+export default memoizePromiseFn;
