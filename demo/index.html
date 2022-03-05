@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo memoize-promise-fn</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app" class="section">
+      <h1>Demo memoize-promise-fn</h1>
+      <p class="instructions">
+        Change the id using the buttons to initiate an api call, check the
+        network tab in browser console to see the api calls.
+        <br />
+        If you come to the same id again, the api call will be skipped and
+        result will be served from cache.
+      </p>
+
+      <p>Todo Id - <b id="productId"></b></p>
+
+      <p class="todo-data">Todo data - <span id="data"></span></p>
+
+      <button id="decrement">- decrement id</button>
+      <button id="increment">+ increment id</button>
+    </div>
+    <div class="section">
+      <h4>Network calls url - fetch intercept</h4>
+      <ol id="fetch-urls"></ol>
+    </div>
+
+    <script src="src/interceptor.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>

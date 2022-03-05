@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+}
+.instructions {
+  color: hsl(210, 8%, 43.5%);
+}
+
+.section {
+  border: 1px solid rgb(235, 237, 240);
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 5px 2px;
+  padding: 0 24px 24px 24px;
+  margin-bottom: 24px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid blue;
+  padding: 5px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: black;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
