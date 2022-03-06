@@ -10,6 +10,5 @@
                 return res;
             })
             .catch((err) => { });
-
     }
 })();
