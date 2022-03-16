@@ -2,6 +2,8 @@
 
 A utility to cache api calls in JavaScript by memoizing promises.
 
+https://hackernoon.com/cache-api-calls-in-javascript-by-memoizing-promises
+
 # Installation
 
 ```bash
