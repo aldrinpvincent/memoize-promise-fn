@@ -2,6 +2,7 @@ const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
   const cache = new Map();
 
   return (...args: any) => {
+    const context = this;
     const key = JSON.stringify(args);
 
     if (cache.has(key)) {
@@ -10,7 +11,7 @@ const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
 
     cache.set(
       key,
-      fn([...args]).catch(error => {
+      fn.call(context, ...args).catch((error: any) => {
         // Delete cache entry if api call fails
         cache.delete(key);
         return Promise.reject(error);
