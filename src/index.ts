@@ -1,24 +1,23 @@
-const memoizePromiseFn = (fn: (arg: Array<any>) => Promise<any>) => {
-  const cache = new Map();
+const memoizePromiseFn = <T extends (...args: any[]) => Promise<any>>(fn: T) => {
+  const cache = new Map<string, ReturnType<T>>();
 
-  return (...args: any) => {
+  return (...args: Parameters<T>): ReturnType<T> => {
     const context = this;
     const key = JSON.stringify(args);
 
     if (cache.has(key)) {
-      return cache.get(key);
+      return cache.get(key)!;
     }
 
-    cache.set(
-      key,
-      fn.call(context, ...args).catch((error: any) => {
-        // Delete cache entry if api call fails
-        cache.delete(key);
-        return Promise.reject(error);
-      })
-    );
+    const resultPromise = fn.call(context, ...args).catch((error) => {
+      // Delete cache entry if promise rejection occurs
+      cache.delete(key);
+      return Promise.reject(error);
+    });
 
-    return cache.get(key);
+    cache.set(key, resultPromise as ReturnType<T>);
+
+    return resultPromise as ReturnType<T>;
   };
 };
 
